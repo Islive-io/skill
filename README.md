@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 skill
 =====
 
@@ -31,3 +32,6 @@ There are a couple of rules.
 
 ## Good luck
 Really, good luck. :) :+1:
+=======
+Basic chat test
+>>>>>>> 8d351d9a5305b613d3e924d33e92485b8f259500

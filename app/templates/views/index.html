@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<title>Skill Test Chat</title>
+		<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+
+		<script src="/assets/js/vendor/jquery-2.1.1.min.js"></script>
+		<script src="https://cdn.socket.io/socket.io-1.1.0.js"></script>
+	</head>
+
+	<body>
+		<header class="chat-header">
+			<div class="container">
+				Skill Test Chat
+			</div>
+		</header>
+
+		<main class="chat-content">
+			<div id="base-chat-line" class="chat-line hidden">
+				<div class="container">
+					<div class="chat-line-name"></div>
+					<div class="chat-line-message"></div>
+				</div>
+			</div>
+		</main>
+
+		<section class="chat-input-bar">
+			<div class="container">
+                <input id="username-input" class="chat-name-input" type="text" placeholder="Nickname" />
+                <input id="message-input" class="chat-text-input" type="text" placeholder="Type to chat..." />
+                <input id="submit-input" class="chat-submit-input" type="button" value="Send" />
+			</div>
+		</section>
+
+		<script src="/assets/js/chatsystem.js"></script>
+	</body>
+</html>
