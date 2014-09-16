@@ -3,9 +3,6 @@
  */
 
 $(function() {
-    var WEBSOCKET_URL       = "//localhost/socket-io";
-    var WEBSOCKET_PROTOCOLS = ["soap", "xmpp"];
-
     /**
      * Constructor.
      *
@@ -19,8 +16,6 @@ $(function() {
         this.MIN_NAME_LENGTH    = 3;
         this.MIN_MESSAGE_LENGTH = 1;
 
-        this.line
-
         this.$usernameInput     = $usernameInput;
         this.$textInput         = $textInput;
         this.$submitInput       = $submitInput;
@@ -31,7 +26,7 @@ $(function() {
         var $newLine = $("#base-chat-line").clone();
         var $nickname = $(".chat-line-name", $newLine);
         var $message = $(".chat-line-message", $newLine);
-
+        
         $newLine.removeClass("hidden");
         $nickname.text(nickname);
         $message.text(message);

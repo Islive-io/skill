@@ -35,11 +35,11 @@ body, html {
 	line-height: 20px;
 }
 
-.chat-line.even {
+.chat-line:nth-child(even) {
 	background-color: #FFF;
 }
 
-.chat-line.odd {
+.chat-line:nth-child(odd) {
 	background-color: #ececec;
 }
 
