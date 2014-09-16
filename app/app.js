@@ -13,20 +13,6 @@ var APP_OPTIONS = {
 
 // ----------------------------------------------------------------------
 
-function ChatSystemAPI() {
-
-}
-
-ChatSystemAPI.prototype.run = function() {
-
-};
-
-var api = new ChatSystemAPI();
-
-api.run();
-
-// ----------------------------------------------------------------------
-
 var app    = express();
 var server = http.Server(app);
 var io     = socketio(server);
@@ -36,6 +22,7 @@ io.on('connection', function(socket){
     console.log('a user connected');
 
     // Awesome database.
+    // Todo: A real database.
     for (var i = 0; i < log.length; i++) {
         socket.emit("onMessage", log[i]);
     }
@@ -53,7 +40,7 @@ io.on('connection', function(socket){
     });
 });
 
-
+// ----------------------------------------------------------------------
 
 app.use("/assets", express.static(APP_OPTIONS.assetPath));
 

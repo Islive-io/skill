@@ -26,7 +26,7 @@ $(function() {
         var $newLine = $("#base-chat-line").clone();
         var $nickname = $(".chat-line-name", $newLine);
         var $message = $(".chat-line-message", $newLine);
-        
+
         $newLine.removeClass("hidden");
         $nickname.text(nickname);
         $message.text(message);
