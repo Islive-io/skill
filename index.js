@@ -10,8 +10,12 @@ app.get('/', function(request, response) {
 });
 
 io.on('connection', function(socket){
+    io.emit('new user', 'NEW USER LOGGED IN');
     socket.on('chat message', function(msg){
         io.emit('chat message', msg);
+    });
+    socket.on('new user', function(msg){
+        io.emit('new user', msg);
     });
 });
 
