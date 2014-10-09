@@ -3,6 +3,8 @@
   "version": "0.0.1",
   "description": "socket chat skill test - is life",
   "dependencies": {
-    "express": "~4.9.6"
+    "express": "~4.9.6",
+    "socket.io": "1.0.2",
+    "serve-static": "1.6.4"
   }
 }

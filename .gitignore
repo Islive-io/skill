@@ -1,2 +1,14 @@
 // Ignore IDE config
 *iml
+
+// Ignore root node_modules
+/node_modules
+
+// Boilerplate, not using right now
+/public/ejs
+/public/hbs
+/public/hogan
+/public/jade
+
+/public/js/routes
+/public/js/www
