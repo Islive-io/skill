@@ -1,9 +1,10 @@
-
-
 var app = require('express')();
 var serveStatic = require('serve-static');
+var path = require('path');
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+
+app.use(serveStatic(path.join(__dirname, 'public')));
 
 app.get('/', function(request, response) {
     response.sendFile(__dirname + "/public/views/index.html");
