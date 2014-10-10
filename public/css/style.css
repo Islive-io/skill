@@ -47,7 +47,8 @@ ul {
 /* Login Page */
 
 .login.page {
-    background-color: #000;
+    background: url('../img/bg.jpg') no-repeat;
+    background-size: cover;
 }
 
 .login.page .form {
