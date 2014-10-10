@@ -52,8 +52,6 @@ io.on('connection', function (socket) {
     socket.on('add user', function (username) {
         // Iterate through messages array and emit a message on the connecting client for each one
         messages.forEach(function(message) {
-            console.log(messages);
-            console.log(message);
             socket.emit("older messages", { username: message.name, message: message.data});
         });
 
