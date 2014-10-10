@@ -241,6 +241,11 @@ $(function() {
         addChatMessage(data);
     });
 
+    // Whenever the server emits 'new message', update the chat body
+    socket.on('older messages', function (data) {
+        addChatMessage(data);
+    });
+
     // Whenever the server emits 'user joined', log it in the chat body
     socket.on('user joined', function (data) {
         log(data.username + ' joined');

@@ -5,6 +5,7 @@ var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 var port = process.env.PORT || 3000;
 
+
 server.listen(port, function () {
     console.log('Server listening at port %d', port);
 });
@@ -21,9 +22,21 @@ app.get('/', function(request, response) {
 // usernames which are currently connected to the chat
 var usernames = {};
 var numUsers = 0;
+var messages = [];
 
 io.on('connection', function (socket) {
     var addedUser = false;
+
+    // Store messages in array
+    var storeMessage = function(name, data) {
+        // Add message to the end of array
+        messages.push({name: socket.username, data: data});
+        if(messages.length > 10) {
+
+            // If more than 10 messages long, remove last one
+            messages.shift();
+        }
+    }
 
     // when the client emits 'new message', this listens and executes
     socket.on('new message', function (data) {
@@ -32,10 +45,18 @@ io.on('connection', function (socket) {
             username: socket.username,
             message: data
         });
+        storeMessage(socket.username, data);
     });
 
     // when the client emits 'add user', this listens and executes
     socket.on('add user', function (username) {
+        // Iterate through messages array and emit a message on the connecting client for each one
+        messages.forEach(function(message) {
+            console.log(messages);
+            console.log(message);
+            socket.emit("older messages", { username: message.name, message: message.data});
+        });
+
         // we store the username in the socket session for this client
         socket.username = username;
         // add the client's username to the global list
