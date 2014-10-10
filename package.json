@@ -1,6 +1,6 @@
 {
   "name": "skill",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "socket chat skill test - is life",
   "dependencies": {
     "express": "~4.9.6",
