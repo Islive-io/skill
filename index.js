@@ -4,6 +4,8 @@ var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 var port = process.env.PORT || 3000;
+var redis = require('redis');
+var redisClient = redis.createClient();
 
 
 server.listen(port, function () {
@@ -29,13 +31,13 @@ io.on('connection', function (socket) {
 
     // Store messages in array
     var storeMessage = function(name, data) {
-        // Add message to the end of array
-        messages.push({name: socket.username, data: data});
-        if(messages.length > 10) {
+        // Turn object into string to store in redis
+        var message = JSON.stringify({name: name, data: data});
 
-            // If more than 10 messages long, remove last one
-            messages.shift();
-        }
+        redisClient.lpush("messages", message, function(err, response) {
+            // Keep latest 10 items
+            redisClient.ltrim("messages", 0, 10);
+        });
     }
 
     // when the client emits 'new message', this listens and executes
@@ -50,9 +52,15 @@ io.on('connection', function (socket) {
 
     // when the client emits 'add user', this listens and executes
     socket.on('add user', function (username) {
-        // Iterate through messages array and emit a message on the connecting client for each one
-        messages.forEach(function(message) {
-            socket.emit("older messages", { username: message.name, message: message.data});
+        redisClient.lrange("messages", 0, -1, function(err, messages) {
+            // emit in the right order
+            messages = messages.reverse();
+
+            messages.forEach(function(message) {
+                // parse into JSON object
+                message = JSON.parse(message);
+                socket.emit("older messages", { username: message.name, message: message.data });
+            });
         });
 
         // we store the username in the socket session for this client
