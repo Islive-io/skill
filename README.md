@@ -15,3 +15,4 @@ h3. Dependencies
 - Express
 - Serve-static
 - Socket.io
+- Redis
