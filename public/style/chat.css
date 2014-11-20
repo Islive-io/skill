@@ -1,0 +1,16 @@
+
+#chat-widget .chat-userlist { overflow:hidden; padding: 0; margin: 0 }
+#chat-widget .chat-userlist .chat-user { list-style-type: none; background: #eee; border: 1px solid #666; padding: 0.2em 0.4em; margin: 0 0 0 0.4em; float: left; cursor: pointer; }
+#chat-widget .chat-userlist .chat-user.active { background: #6ff; }
+#chat-widget .chat-userlist .chat-user.anonymous { font-style: italic; }
+
+#chat-widget .chat-input { margin: 1em 0.4em 0 0.4em; }
+#chat-widget .chat-input input { width: 100%; box-sizing: border-box; padding: 0.4em 0.8em; }
+
+#chat-widget .chat-messages { margin: 1em 0.4em; padding: 0 }
+#chat-widget .chat-messages .chat-notification,
+#chat-widget .chat-messages .chat-message { list-style-type: none; padding: 0.2em 0.4em; margin: 0.2em 0; }
+#chat-widget .chat-messages .chat-notification { background: #fee; }
+#chat-widget .chat-messages .chat-message { background: #eef; }
+#chat-widget .chat-messages .chat-message.active { background: #eff; }
+
