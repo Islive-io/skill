@@ -1,0 +1,15 @@
+{
+  "name": "Chat",
+  "version": "0.0.1",
+  "description": "Toy chatserver",
+  "author": "Justin Rasink",
+  "private": true,
+  "scripts": {},
+  "dependencies": {
+    "express": "~4.10.2",
+    "socket.io": "~1.2.0",
+    "debug": "~2.1.0",
+    "templatizer": "~1.1.0",
+    "underscore": "~1.7.0"
+  }
+}
